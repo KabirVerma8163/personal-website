@@ -1,0 +1,57 @@
+---
+import ReactHeader from "./Header.jsx"
+import * as styles from "./header.module.scss"
+import { faHome, faProjectDiagram, faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
+const { pageName } = Astro.props
+
+const navbarRightSideItems = [
+  {
+    name: "home",
+    link: "/",
+    icon: faHome
+  },
+  {
+    name: "projects",
+    link: "/projects",
+    icon: faProjectDiagram
+  },
+  {
+    name: "resume",
+    link: "/resume",
+    icon: faFileAlt
+  },
+  {
+    name: "contact",
+    link: "#Contact",
+    icon: faEnvelope
+  },
+]
+
+const navbarProps = {
+  navbarRightSideItems: navbarRightSideItems,
+  navbarContainerCls: styles.navbarContainer,
+  navbarLeftSideCls: styles.navbarLeftSide,
+  navbarLeftSideLogoCls: styles.navbarLeftSideLogo,
+  navbarRightSideCls: styles.navbarRightSide,
+  navbarRightSideItemCls: styles.navbarRightSideItem,
+  pageName: pageName
+}
+
+const minibarProps = {
+  minibarContainerCls: styles.minibarContainer,
+  minibarItems: navbarRightSideItems,
+  minibarItemCls: styles.minibarItem,
+  pageName: pageName
+}
+
+---
+<div class="headerContainer">
+  <ReactHeader 
+    client:load
+    navbarProps = {navbarProps}
+    minibarProps = {minibarProps}
+  >
+  </ReactHeader> 
+</div>
+

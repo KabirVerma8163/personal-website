@@ -1,0 +1,95 @@
+.navbarContainer{
+  width: 100vw;
+  height: 10vh;
+
+  display: flex;
+  flex-direction: row;
+
+  background-color: lightgreen;
+}
+
+.navbarLeftSide{
+  width: 30vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2em;
+  color:darkcyan;
+}
+
+.navbarLeftSideLogo{
+  width: 8vh;
+  height: 8vh;
+  margin: auto;
+}
+
+.navbarRightSide{
+  width: 50vw;
+  height: 100%;
+
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbarRightSideItem{
+  width: 6vw;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5em;
+  color: darkcyan;
+
+  &:hover{
+    cursor: pointer;
+    color: darkblue;
+    transform: scale(1.1);
+  }
+}
+
+.minibarContainer{
+  position: fixed;
+  width: 20vw;
+  height: 6vh;
+  border-radius: 25px;
+  background-color: lightgreen;
+  top: 0.5em;
+  right: 2em;
+  self-align: right;
+  margin: 1em 0 1em 0;
+
+  opacity: 0.6;
+  // background-color: #333;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  display: flex;
+  flex-direction: row;
+}
+
+.minibarItem{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.5em;
+  color: darkcyan;
+
+  &:hover{
+    cursor: pointer;
+    color: darkblue;
+    transform: scale(1.1);
+  }
+}

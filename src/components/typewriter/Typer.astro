@@ -1,0 +1,45 @@
+---
+import TypeWriter from './Typer.jsx'
+
+const strings = [
+  "Student",
+  "Developer",
+  "Collaborator",
+  "Blah",
+]
+
+let { headingCls} = Astro.props
+---
+
+<divi class="container">
+  <TypeWriter 
+    strings={strings}
+    colorClass={""}
+
+    client:load
+  />
+
+</divi>
+
+<style lang="scss" is:global>
+  .container{
+    // display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cursor-blink {
+    opacity: 1;
+    animation: blink-animation 1s step-end infinite;
+  }
+
+  @keyframes blink-animation {
+    from, to {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+</style>

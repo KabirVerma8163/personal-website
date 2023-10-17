@@ -1,0 +1,127 @@
+---
+---
+
+<div class="experienceBody">
+  <div class="top">
+    <div class="myStory">
+      <div class="myStoryHeader">
+        My Programming Journey
+      </div>
+  
+      <div class="myStory">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure hic in libero ducimus ab mollitia dicta accusantium fuga, commodi asperiores ipsa amet magni nisi aspernatur itaque? Officia facere accusamus similique?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore, consequuntur voluptatem odio rem optio cum quidem. Eius vel velit, iste sapiente quas accusantium! Non sunt nesciunt cupiditate ipsa accusamus rerum.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius animi voluptatum quisquam architecto suscipit, pariatur et natus facere fugiat porro dicta, itaque consequuntur commodi non molestiae consectetur. Obcaecati, aspernatur necessitatibus.
+
+        <div class="leaveAReview">
+          <div class="leaveAReviewHeader">
+            Leave a Review!!
+          </div>
+      
+          <div class="leaveAReviewText">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <div class="bottom">
+    <div class="resumeBody">
+      <!-- <iframe 
+        src="https://drive.google.com/file/d/1S3BKkenXp6l-9DZJrsG5Olj_wiS_Q0B-/preview" 
+        allow="autoplay"
+        height="100%"
+      /> -->
+      <embed 
+        class="resumeEmbed"
+        src="/resume.pdf" 
+        type="application/pdf" 
+      >
+
+    </div>
+  </div>
+
+</div>
+
+<style lang="scss">
+  .resumeEmbed{
+    width: 100%;
+    height: 120vh;
+    &:hover {
+      // transform: scale(1.1);
+      // border: #1704e7 10px solid;
+    } 
+  }
+
+  .experienceBody{
+    display: inline-flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100vh;
+    // width: 100vw;
+  }
+
+  .top{
+    width: 100vw;
+    // height: 100%;
+    // background-color: #bd09d5;
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em;
+  }
+
+  .myStoryHeader{
+    // width: 100%;
+    // height: 10%;
+    // background-color: #f5f5f5;
+    font-size: 2em;
+    alighn-self: center;
+    text-align: center;
+  }
+
+  .myStory{
+    // width: 40%;
+    // height: 100%;
+    // background-color: #f5f5f5;
+    padding: 1em;
+    text-align: justify;
+  }
+
+  .leaveAReview{
+    // width: 100%;
+    // height: 10%;
+    // background-color: #f5f5f5;
+  }
+
+  .leaveAReviewHeader{
+    font-size: 1.25em;
+  }
+
+  .leaveAReviewText{
+    font-size: 1em;
+  }
+
+
+  .bottom{
+    width: 100vw;
+    // height: 100vh;
+    // background-color: #04e72d;
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .resumeBody{
+    margin: 1em auto;
+    width: 80%;
+    // height: 90%;
+    flex: 1;
+    background-color: #096cd5;
+  }
+
+
+</style>

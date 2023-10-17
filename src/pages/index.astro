@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/BasicLayout.astro'
+import ZigZag from '../components/zigzag/ZigZag.astro'
+import TypeWriter from '../components/typewriter/Typer.astro'
+
+const zigZagLinks = [
+	{
+		name: "Resume", 
+		type: "page", 
+		link: "/resume"
+	},
+	{
+		name: "Projects", 
+		type: "page", 
+		link: "/projects"
+	},
+	{
+		name: "Contact",
+		type: "page", 
+		link: "#Contact"
+	}
+]
+---
+
+<Layout pageName="home" title="Kabir Verma">
+		<body>
+			<div class="main-body bgColr" >
+				
+				<div class="bottomHalf text-white">
+
+					<div class="topHalf linkColor">
+						<div class="linksContainer">
+							<ZigZag links={zigZagLinks} /> 
+						</div>
+					</div>
+
+					<div class="headerContainer">
+						<h1 class="mainHeader"   >
+							Hi! I'm Kabir, a <TypeWriter />
+						</h1>
+					</div>
+
+					<div class="textContainer">
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, voluptate exercitationem ullam rerum esse id, vitae beatae adipisci illum sit, cupiditate repudiandae cum consequuntur minima atque assumenda deleniti fugit. Alias!
+					</div>
+				</div>
+			</div>
+
+		</body>
+</Layout>
+
+<style is:global>
+	.headingCls{
+		color: #6e81d7;
+	}
+</style>
+
+<style lang="scss">
+	.mainHeader{
+		font-size: 3em;
+		padding-top: 1em;
+	}
+	
+	.mainText{
+		font-size: 2.5em;
+	}
+
+	.linkColor{
+		color: #6e6ed7;
+		&:hover{
+			color:#fff;
+		}
+	}
+
+	.textContainer{
+		margin: 0 0 2% 0%;
+		font-size: 1.25em;
+	}
+
+	.bgColr{
+		background-color: #fff;
+	}
+
+	.bottomHalf{
+		margin: 5% 10%;
+	}
+
+	.main-body{
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		z-index: -10;
+	}
+	
+	// $offset: 65%; $dividerMargin: 2.5%; $left-Text-color: #99e1d9; 
+	// $right-Text-color: #99e1d9;
+	// .headerContainer{
+	// 	display: flex;
+	// }
+
+	// .linksContainer{
+	// 	width: 40vw;
+	// 	margin-left: auto;
+	// 	margin-top: 0vh;
+	// }
+
+</style>

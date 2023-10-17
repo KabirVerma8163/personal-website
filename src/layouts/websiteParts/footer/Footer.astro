@@ -1,0 +1,83 @@
+---
+import WaveComponent from "./Footer.jsx"
+import { waveProperties } from "../../../constants.js"
+
+let { pageName } = Astro.props
+---
+
+<div id="Contact" class="footer">
+  <!-- <div class="footerTransition" 
+    style={`${footer.trasitionColor};`}
+  >
+  </div> -->
+
+  <div 
+    class="wave-container" 
+    style={waveProperties.waveBackgroundColor}
+  >
+    <WaveComponent 
+      pageName={pageName}
+      client:only>
+    </WaveComponent>
+
+    <div class="content">Your Content Here</div>
+  </div>
+</div>
+
+<style is:global>
+  .wave-container {
+    width: 100vw;
+    height: 100%;
+    margin-bottom: 0;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  canvas.wave{
+    z-index: 0;
+  }
+</style>
+
+<style lang="scss" >
+  $footerHeight: 30vh;
+  $footerColor: #0c392a; 
+
+  .footer{
+    width: 100vw;
+    height: $footerHeight;
+
+    background-color: $footerColor;
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+  }
+
+  .mainFooter{
+    width: 100%;
+    display: flex;
+    // flex-direction: row;
+  }
+
+  .content{
+    position: absolute;
+    margin: auto, auto;
+    z-index: 99;
+    color: #000;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 15vh;
+    backdrop-filter: blur(20px); 
+		background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>

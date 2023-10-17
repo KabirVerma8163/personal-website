@@ -1,0 +1,12 @@
+.zigzagContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  align-self: right;
+  justify-content: flex-end;
+}
+
+.zigzagItem {
+  margin: 0.75em 0;
+  font-size: 1.25em;
+}

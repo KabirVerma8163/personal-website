@@ -1,0 +1,28 @@
+---
+import HoverComponent from './ZigZag.jsx'
+import * as styles from './zigzag.module.css'
+
+const treeItems = [
+  "About Me",
+  "Projects",
+  "My Resume",
+  "Contact",
+]
+
+const { links } = Astro.props
+//     treeItems={treeItems}
+---
+
+<div class="container">
+  <HoverComponent 
+    zigzagContainerCls={styles.zigzagContainer}
+    zigzagItemCls={styles.zigzagItem} 
+
+    links={links}
+    client:load
+  />
+
+</div>
+
+<style lang="scss">
+</style>
