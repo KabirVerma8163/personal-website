@@ -1,13 +1,13 @@
 ---
-import Footer from './websiteParts/footer/Footer.astro'
-import Header from './websiteParts/header/Header.astro'
+import Footer from "./websiteParts/footer/Footer.astro";
+import Header from "./websiteParts/header/Header.astro";
 
 interface Props {
-	pageName: string
-	title: string
+	pageName: string;
+	title: string;
 }
 
-const { pageName, title } = Astro.props
+const { pageName, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,30 +20,72 @@ const { pageName, title } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
-		{
-			(pageName !== "home" && pageName !== "index") 
-			&& 
-			<Header pageName={pageName} />
-		}
-		<slot />
-		<Footer pageName={pageName}/>
+		<div id="Layout" class="mainBody">
+			<div class="pageContents">
+				{
+					pageName !== "home" && pageName !== "index" && (
+						<Header pageName={pageName} class="links" />
+					)
+				}
+				<slot />
+			</div>
+		</div>
+		<Footer pageName={pageName} />
+		<div id="Contact">a</div>
 	</body>
 </html>
 
-<style is:global>
-	*{ 
+<style lang="scss" is:global>
+	* {
 		margin: 0;
 		padding: 0;
 		border-width: 0;
 		scroll-behavior: smooth;
-		font-family: 'Ubuntu', sans-serif;
+		font-family: "Ubuntu", sans-serif;
 
+		/* background-color: #1e1e1e; */
+		overflow: visible;
+	}
+	body {
 		background-color: #1e1e1e;
-		color: white;
+	}
+	canvas {
+		background-color: #1e1e1e;
+	}
+
+	#Contact {
+		@media (min-width: 768px) {
+			transform: translateY(5vh);
+		}
+		background-color: transparent;
+		color: transparent;
+	}
+</style>
+
+<style lang="scss">
+	.mainBody {
+		display: flex;
+		flex-direction: row;
+		background-color: #1e1e1e;
+		overflow: visible;
+
+		.links {
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+
+	.pageContents {
+		margin: 5% 10% 0% 10%;
+		width: 100%;
 	}
 </style>

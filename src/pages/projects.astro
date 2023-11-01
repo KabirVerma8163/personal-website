@@ -1,31 +1,120 @@
 ---
-import Layout from '../layouts/BasicLayout.astro'
+import Layout from "../layouts/BasicLayout.astro"
+import ScrollingComponent from "../components/scrollWheel/ScrollWheel.astro"
+import ProjectsComponent from "../components/projects/Projects.jsx"
+
+const projectsList = [
+  {
+    Name: "Obsidian Journaling",
+    MiniDescription: "Open-Source Typescript Plugin for Obsidian.",
+    Field: ["Back-End", "Front-End"],
+    Type: "Open-Source",
+    Languages: ["TypeScript"],
+    Technologies: ["Obsidian", "Node.js"],
+    Goal: "Facilitate better note-taking",
+    Link: "https://github.com/yourusername/obsidian-journaling"
+  },
+  {
+    Name: "ShareMyFeed",
+    MiniDescription: "Go API & Discord.js Bot for social feed sharing.",
+    Field: ["Back-End"],
+    Type: "Bot",
+    Languages: ["Go", "JavaScript"],
+    Technologies: ["Discord.js", "MongoDB"],
+    Goal: "Simplify social media sharing",
+    Link: "#"
+  },
+  {
+    Name: "YouTube Scraper",
+    MiniDescription: "Python script to scrape YouTube data.",
+    Field: ["Back-End"],
+    Type: "Script",
+    Languages: ["Python"],
+    Technologies: ["Playwright"],
+    Goal: "Automate YouTube data collection",
+    Link: "#"
+  },
+  {
+    Name: "Provident",
+    MiniDescription: "Interactive investing simulator.",
+    Type: "Web App",
+    Languages: ["JavaScript"],
+    Technologies: ["HTML/CSS", "IEXCloud API", "Highcharts"],
+    Goal: "Educate on investing",
+    Link: "#"
+  },
+  {
+    Name: "Random Project 1",
+    MiniDescription: "A project for doing something interesting.",
+    Type: "Mobile App",
+    Languages: ["Swift"],
+    Technologies: ["iOS", "Firebase"],
+    Goal: "Make life easier",
+    Link: "#"
+  },
+  {
+    Name: "Random Project 2",
+    MiniDescription: "Another intriguing project.",
+    Type: "API",
+    Languages: ["Java"],
+    Technologies: ["Spring Boot"],
+    Goal: "Provide Data Service",
+    Link: "#"
+  },  
+  {
+    Name: "Random Project 1",
+    MiniDescription: "A project for doing something interesting.",
+    Type: "Mobile App",
+    Languages: ["Swift"],
+    Technologies: ["iOS", "Firebase"],
+    Goal: "Make life easier",
+    Link: "#"
+  },
+  {
+    Name: "Random Project 2",
+    MiniDescription: "Another intriguing project.",
+    Type: "API",
+    Languages: ["Java"],
+    Technologies: ["Spring Boot"],
+    Goal: "Provide Data Service",
+    Link: "#"
+  }
+]
 ---
 
 <Layout pageName="projects" title="Projects">
-
-<main>
-  <body>
-    <div class="mainBody">
-      shit here
+  <div class="mainBody mt-4 mb-12">
+    <div class="projectsHeader">
+      <p>Click a card to learn more!</p>
     </div>
-  </body>
-
-<main>
-  
-
+    <!-- <ScrollingComponent /> -->
+    <ProjectsComponent projects={projectsList} client:load/>
+  </div>
 </Layout>
 
 <style lang="scss">
-  .mainBody{
+  .mainBody {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
-
-    background-color: #5d576b
+    width: 100%;
   }
-  
+
+  .projectsHeader{
+    color: #fff; 
+    font-size: 1.5rem;
+  }
+</style>
+
+<style is:global>
+  .projectCardsContainer{
+    display: flex; 
+    flex-direction: row;
+    width: 100%;
+    margin-top: 2em;
+    justify-content: center;
+    align-items: center;
+  }
+
 </style>

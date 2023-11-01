@@ -1,81 +1,90 @@
 ---
-import WaveComponent from "./Footer.jsx"
+import WaveComponent from "./WaveComponent.jsx"
 import { waveProperties } from "../../../constants.js"
+import * as styles from "./footer.module.scss"
+
+import ReactFooter from "./Footer.jsx"
 
 let { pageName } = Astro.props
 ---
 
-<div id="Contact" class="footer">
-  <!-- <div class="footerTransition" 
-    style={`${footer.trasitionColor};`}
-  >
-  </div> -->
-
-  <div 
-    class="wave-container" 
-    style={waveProperties.waveBackgroundColor}
-  >
-    <WaveComponent 
-      pageName={pageName}
-      client:only>
-    </WaveComponent>
-
-    <div class="content">Your Content Here</div>
-  </div>
+<div class="">
+  <ReactFooter 
+    pageName={pageName} 
+    links={undefined} 
+    styleTags={styles}
+    client:load
+  />
 </div>
 
-<style is:global>
+<style lang="scss" is:global>
   .wave-container {
     width: 100vw;
     height: 100%;
-    margin-bottom: 0;
     display: flex;
     align-items: flex-end;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #1e1e1e;
   }
 
-  canvas.wave{
-    z-index: 0;
+
+  .icon {
+    color: #f1f1f1;
+    &:hover {
+      color: #00c362;
+      color: #4264ff;
+    }
   }
 </style>
 
 <style lang="scss" >
   $footerHeight: 30vh;
-  $footerColor: #0c392a; 
+  // $footerColor: #0c392a; 
+
+  .contact{
+    // bottom: 0;
+  }
 
   .footer{
     width: 100vw;
     height: $footerHeight;
 
-    background-color: $footerColor;
+    // background-color: $footerColor;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    position: relative;
-  }
+    background-color: #1e1e1e;
 
-  .mainFooter{
-    width: 100%;
     display: flex;
-    // flex-direction: row;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    // position: relative;
   }
 
   .content{
-    position: absolute;
-    margin: auto, auto;
-    z-index: 99;
+    // z-index: 99;
     color: #000;
-
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 40%;
     height: 15vh;
+    margin: 5% 0 0 0;
     backdrop-filter: blur(20px); 
 		background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5em;
 
+    transform: translateY(10vh);
+
+    @media (max-width: 768px) {
+      transform: translateY(0vh);
+    }
+
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }

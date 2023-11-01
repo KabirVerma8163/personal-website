@@ -25,7 +25,7 @@ export const navbar = {}
 {
   navbar.bgColor = ""
   navbar.textColor = ""
-  navbar.hoverColor = "" // gotta be changed in the scss
+  navbar.hoverColor = "#6e6ed7" // gotta be changed in the scss
   navbar.sourceImage = "https://via.placeholder.com/150"
 }
 

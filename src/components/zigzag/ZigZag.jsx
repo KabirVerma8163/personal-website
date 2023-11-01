@@ -1,28 +1,26 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { zigZag } from '../../constants'
+import { useIsTouchDevice } from '../isTouchDevice.jsx'
 
 const zzItemOffset = 1 // em
 const scale = 1.3
 const evenVariant = {
   initial: { opacity: 1, color: `#6e6ed7`},
-  hover: { 
-    scale: scale, 
-    y: `+${zzItemOffset}em`, 
-    color: `${zigZag.hoverColor !== "" ? zigZag.hoverColor : ""}`
-  },
-  unhover: { scale: 0.75, opacity: 1, x: 0 },
+  hover: { scale: scale, y: `+${zzItemOffset}em`, color: '#fff'},
+  unhover: { scale: 0.75},
 }
 
-const oddVariant = {
-  initial: { opacity: 1,  color: `#6e6ed7`},
-  hover: { 
-    scale: scale, 
-    y: `+${zzItemOffset}em`, 
-    color: `${zigZag.hoverColor !== "" ? zigZag.hoverColor : ""}`
-  },
-  unhover: { scale: 0.75, opacity: 1, x: 0},
-}
+const oddVariant = evenVariant
+// {
+//   initial: { opacity: 1,  color: `#6e6ed7`},
+//   hover: { 
+//     scale: scale, 
+//     y: `+${zzItemOffset}em`, 
+//     color: `${zigZag.hoverColor !== "" ? zigZag.hoverColor : ""}`
+//   },
+//   unhover: { scale: 0.75, opacity: 1, x: 0},
+// }
 
 
 const ReactZigZag = (props) => {
@@ -33,7 +31,10 @@ const ReactZigZag = (props) => {
   } = props
   
   const [hoveredIndex, setHoveredIndex] = useState(null)
-
+  const isTouchDevice = useIsTouchDevice()
+  if (isTouchDevice){
+    evenVariant.hover = { }  
+  }
   return (
   <div className={zigzagContainerCls}>
     {
@@ -46,7 +47,6 @@ const ReactZigZag = (props) => {
       }
 
       const myComponentStyle = index + 1 === links.length ? { marginRight: '0'} : { };
-      console.log(myComponentStyle)
 
       return (
         <motion.div 

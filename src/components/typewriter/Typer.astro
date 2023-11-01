@@ -1,34 +1,30 @@
 ---
 import TypeWriter from './Typer.jsx'
 
-const strings = [
+const defaultStrings = [
   "Student",
   "Developer",
   "Collaborator",
   "Blah",
 ]
 
-let { headingCls} = Astro.props
+let { headingCls, strings } = Astro.props
+
+if (strings === undefined) strings = defaultStrings
+if (headingCls === undefined) headingCls = ""
+
+console.log(strings)
 ---
 
-<divi class="container">
-  <TypeWriter 
-    strings={strings}
-    colorClass={""}
+<TypeWriter 
+  strings={strings}
+  colorClass={""}
+  headingCls={headingCls}
 
-    client:load
-  />
-
-</divi>
+  client:load
+/>
 
 <style lang="scss" is:global>
-  .container{
-    // display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
   .cursor-blink {
     opacity: 1;
     animation: blink-animation 1s step-end infinite;

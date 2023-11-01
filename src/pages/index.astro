@@ -20,33 +20,29 @@ const zigZagLinks = [
 		link: "#Contact"
 	}
 ]
+
+const typerStrings = [
+	"Software Engineer", 
+	"Full Stack Developer", 
+	"Web Developer", 
+	"Student"
+]
 ---
 
 <Layout pageName="home" title="Kabir Verma">
-		<body>
-			<div class="main-body bgColr" >
-				
-				<div class="bottomHalf text-white">
+	<div class="mainBody">
+		<div class="linkColor">
+			<ZigZag links={zigZagLinks} /> 
+		</div>
 
-					<div class="topHalf linkColor">
-						<div class="linksContainer">
-							<ZigZag links={zigZagLinks} /> 
-						</div>
-					</div>
+		<div class="contentParagraphHeader text-white">
+			Hi! I'm Kabir, a <span class="typer"><TypeWriter strings={typerStrings} /></span>
+		</div>
 
-					<div class="headerContainer">
-						<h1 class="mainHeader"   >
-							Hi! I'm Kabir, a <TypeWriter />
-						</h1>
-					</div>
-
-					<div class="textContainer">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, voluptate exercitationem ullam rerum esse id, vitae beatae adipisci illum sit, cupiditate repudiandae cum consequuntur minima atque assumenda deleniti fugit. Alias!
-					</div>
-				</div>
-			</div>
-
-		</body>
+		<div class="textContainer text-white">
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus, voluptate exercitationem ullam rerum esse id, vitae beatae adipisci illum sit, cupiditate repudiandae cum consequuntur minima atque assumenda deleniti fugit. Alias!
+		</div>
+	</div>
 </Layout>
 
 <style is:global>
@@ -56,52 +52,48 @@ const zigZagLinks = [
 </style>
 
 <style lang="scss">
-	.mainHeader{
-		font-size: 3em;
-		padding-top: 1em;
+	.mainBody{
+		height: 60vh;
+
+		@media (max-width: 768px) {
+    // font-size: 0.25em;
+			min-height: 60vh;
+		}
 	}
-	
-	.mainText{
-		font-size: 2.5em;
+
+	.pageContents{
+		// margin: 5% 10%;
 	}
 
 	.linkColor{
-		color: #6e6ed7;
-		&:hover{
-			color:#fff;
+		// color: #6e81d7;
+		font-size: 1.5em;
+	}
+	
+	.typer{
+		@media (max-width: 768px){
+			display: block;
+		}
+	}
+
+	.contentParagraphHeader{
+		font-size: 2.5em;
+		padding-top: 1em;
+
+		@media (max-width: 768px) {
+			font-size: 1.5em;
+			padding-top: 0em;
 		}
 	}
 
 	.textContainer{
 		margin: 0 0 2% 0%;
 		font-size: 1.25em;
+
+		@media (max-width: 768px) {
+			font-size: 1em;
+		}
 	}
 
-	.bgColr{
-		background-color: #fff;
-	}
-
-	.bottomHalf{
-		margin: 5% 10%;
-	}
-
-	.main-body{
-		height: 100vh;
-		display: flex;
-		flex-direction: column;
-		z-index: -10;
-	}
 	
-	// $offset: 65%; $dividerMargin: 2.5%; $left-Text-color: #99e1d9; 
-	// $right-Text-color: #99e1d9;
-	// .headerContainer{
-	// 	display: flex;
-	// }
-
-	// .linksContainer{
-	// 	width: 40vw;
-	// 	margin-left: auto;
-	// 	margin-top: 0vh;
-	// }
-
 </style>

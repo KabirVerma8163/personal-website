@@ -1,65 +1,71 @@
-import React, { useState, useEffect } from 'react'
-import { navbar } from '../../../constants.js'
+import HoverComponent from '../../../components/zigzag/ZigZag.jsx'
+import * as styles from '../../../components/zigzag/zigzag.module.scss'
+
+const zigZagLinks = [
+	{
+		name: "Resume", 
+		type: "page", 
+		link: "/resume"
+	},
+	{
+		name: "Projects", 
+		type: "page", 
+		link: "/projects"
+	},
+	{
+		name: "Contact",
+		type: "page", 
+		link: "#Contact"
+	}
+]
 
 export const Navbar = ({
-  navbarProps
+  navbarProps,
+  showContents
 }) => {
 
   let {
-    navbarRightSideItems,
+    navbarRightSideItems, navbarLeftSideLogoCls, navbarRightSideItemCls, pageName,
     navbarContainerCls,
     navbarLeftSideCls,
-    navbarLeftSideLogoCls,
     navbarRightSideCls,
-    navbarRightSideItemCls,
-    pageName
   } = navbarProps
 
   return(
-    <div className={navbarContainerCls} style={{
-      backgroundColor: `${navbar.bgColor};`,
-    }}>
-      <div 
-        className={navbarLeftSideCls}
-        style={{
-          color: `${navbar.textColor};`
-        }}
+    <div className={navbarContainerCls}>
+      <div className={navbarLeftSideCls}>
+      <div className="p-0 m-0 b-0" style={{
+          color: `#6e6ed7`
+          }}
         >
-        <a href="/">
-          <img 
-            className={navbarLeftSideLogoCls}
-            src={navbar.sourceImage}
-            alt="logo" 
-          />
-        </a>
-        <a href="/" style={{
-          marginLeft: "2em",
-        }}>
-          Kabir Verma
-        </a>
+          {showContents 
+           ? (<a href="/"> Kabir Verma </a>) 
+           : (<a href="/" style={{ color: `#1e1e1e`}}> 
+              Kabir Verma </a>
+           )}
+        </div>
         
       </div>
 
       <div className={navbarRightSideCls}>
-        {navbarRightSideItems.map((item) => {
-          if (item.name !== pageName) {
-            return (
-              <a href={item.link} className={navbarRightSideItemCls}>
-                <div 
-                  
-                  key={item.name}
-                  style={{
-                    color: `${navbar.textColor};`
-                  }}
-                >
-                  {item.name}
-                </div>
-              </a>
-            )
+
+        {/* <div className="linkColor"> */}
+          {
+            showContents ? (         
+              <HoverComponent 
+              zigzagContainerCls={styles.zigzagContainer}
+              zigzagItemCls={styles.zigzagItem} 
+  
+              links={zigZagLinks}
+            />) : (<></>)
           }
-          return null; // Do not render if current page matches
-        })}
+
+        {/* </div> */}
       </div>
+
     </div>
   )
 }
+
+
+

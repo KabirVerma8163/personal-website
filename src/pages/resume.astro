@@ -1,15 +1,146 @@
 ---
-import Layout from '../layouts/BasicLayout.astro'
-import ResumeComponent from '../components/ResumeComponent.astro'
+import Layout from "../layouts/BasicLayout.astro";
+import ResumeComponent from "../experiments/ResumeComponent.astro";
 ---
 
 <Layout pageName="resume" title="Kabir's Resume">
-	<main>
-			<ResumeComponent />
-		</body>
-	</main>
+	<div class="mainBody">
+		<div class="myStory text-white">
+			<div class="myStoryHeader">My Programming Journey</div>
+
+			<div class="myStoryText mb-8">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure hic in
+				libero ducimus ab mollitia dicta accusantium fuga, commodi asperiores
+				ipsa amet magni nisi aspernatur itaque? Officia facere accusamus
+				similique? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+				Tempore, consequuntur voluptatem odio rem optio cum quidem. Eius vel
+				velit, iste sapiente quas accusantium! Non sunt nesciunt cupiditate ipsa
+				accusamus rerum. Lorem ipsum dolor sit amet consectetur adipisicing
+				elit. Eius animi voluptatum quisquam architecto suscipit, pariatur et
+				natus facere fugiat porro dicta, itaque consequuntur commodi non
+				molestiae consectetur. Obcaecati, aspernatur necessitatibus.
+
+				<div class="leaveAReview mt-4">
+					<a href="" class="link leaveAReviewHeader" target="_blank">
+						<div class="leaveAReviewHeader">Leave a Review!!</div>
+					</a>
+
+					<div class="leaveAReviewText">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="resume">
+			<div class="fileLink link text-white mb-4">
+				<a href="/resume.pdf" title="Link to pdf file" target="_blank">
+					My resume
+				</a>
+			</div>
+			<embed class="resumeEmbed" src="/resume.pdf" type="application/pdf" />
+		</div>
+	</div>
 </Layout>
 
 <style lang="scss">
+	.mainBody {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		min-height: 70vh;
+		margin-top: 1%;
 
+		@media (max-width: 768px) {
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+	}
+
+	.link {
+		color: #6e6ed7;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			transform: scale(1.2);
+			color: #fff;
+		}
+	}
+
+	.myStoryHeader {
+		font-size: 2em;
+
+		@media (max-width: 768px) {
+			font-size: 1.5em;
+		}
+	}
+
+	.myStory {
+		padding-top: 3%;
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+
+		@media (max-width: 768px) {
+			width: 100%;
+			order: 1;
+			font-size: 0.75em;
+			padding-top: 3vh;
+		}
+	}
+
+	.myStoryText {
+		font-size: 1.25em;
+
+		@media (max-width: 768px) {
+			font-size: 1em;
+		}
+	}
+
+	.leaveAReview {
+	}
+
+	.leaveAReviewHeader {
+		width: 50%;
+		font-size: 1.25em;
+
+		@media (max-width: 768px) {
+			width: 100%;
+			order: 2;
+		}
+	}
+
+	.leaveAReviewText {
+		font-size: 1em;
+	}
+
+	.resume {
+		flex-grow: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.resumeContainer {
+		height: 100%;
+		transform: translateY(-5%);
+	}
+
+	.fileLink {
+		font-size: 2.5em;
+
+		@media (max-width: 768px) {
+			font-size: 1.5em;
+		}
+	}
+
+	.resumeEmbed {
+		min-height: 55vh;
+		width: 80%;
+		background-color: #f5f5f5;
+		@media (max-width: 768px) {
+			height: 70vh; 
+		}
+	}
 </style>

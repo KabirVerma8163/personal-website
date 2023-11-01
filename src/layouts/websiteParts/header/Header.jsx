@@ -10,12 +10,17 @@ const ScrollBasedComponent = ({
 }) => {
   const [showFirstComponent, setShowFirstComponent] = useState(true)
 
+
   const checkScroll = () => {
+    const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight
     const position = window.scrollY
-    position > 50 ? setShowFirstComponent(false) : setShowFirstComponent(true)
+    const percentgeScroll = (position / windowHeight) * 100
+    percentgeScroll > 10.5 ? setShowFirstComponent(false) : setShowFirstComponent(true)
   }
 
+
   useEffect(() => {
+    checkScroll()
     window.addEventListener('scroll', checkScroll)
     return () => {
       window.removeEventListener('scroll', checkScroll)
@@ -30,7 +35,7 @@ const ScrollBasedComponent = ({
   
   return (
     <AnimatePresence wait>
-      {showFirstComponent ? (
+      {(
         <motion.div
           key="one"
           initial="initial"
@@ -40,10 +45,12 @@ const ScrollBasedComponent = ({
           variants={variants}
         >
           <Navbar 
+            showContents={showFirstComponent}
             navbarProps={navbarProps}
           />
         </motion.div>
-      ) : (
+      )}
+      {showFirstComponent ? (<></>) : (
         <motion.div
           key="two"
           initial="initial"

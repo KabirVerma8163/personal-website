@@ -1,0 +1,127 @@
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.0rem;
+  margin: 2rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px); 
+  background: rgba(255, 255, 255, 0.01); 
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+  z-index: 100;
+}
+
+.cardHeader{
+  font-size: 1.5em; 
+  color: #6e6ed7;
+  transition: color 0.3s ease;
+  &:hover{
+    color: #fff;
+  }
+}
+
+.cardHeaderMain{
+  font-size: 2em; 
+  color: #6e6ed7;
+  transition: color 0.3s ease;
+  &:hover{
+    color: #fff;
+  }
+}
+
+.cardTextMain{
+  font-size: 1.125em; 
+}
+
+.cardLink{
+  // font-size: 1.5em;
+  color: #6e6ed7;
+  transition: color 0.3s ease;
+  &:hover{
+    color: #fff;
+  }
+}
+
+.cardLanguagesHeader{
+
+}
+
+.cardLanguages{
+  display: inline-block;
+  background-color: #6200EE99; 
+  background-color: #03c8b199;
+  padding: 2px 4px;
+  border-radius: 8px;
+  margin: 0 0.25rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 0.75rem;
+
+  &.astro-js {
+    background-color: #FF5722; // color for Astro.js
+  }
+
+  // Add more classes for other languages if needed
+  &.javascript {
+    background-color: #F0DB4F;
+    color: #323330;
+  }
+
+  &.react {
+    background-color: #61DAFB;
+    color: #20232A;
+  }
+}
+
+.cardTechnologies{
+  display: inline-block;
+  background-color: #6200EE99; 
+  background-color: #1afd4099;
+  padding: 2px 4px;
+  border-radius: 8px;
+  margin: 0 0.25rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 0.75rem;
+}
+
+.cardField{
+  display: inline-block;
+  background-color: #6200EE99; 
+  background-color: #fa41b399;
+  padding: 2px 4px;
+  border-radius: 8px;
+  margin: 0 0.15rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 0.75rem;
+  transform: translateY(5%);
+}
+
+.modalBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // width: 1000vw;
+  // height: 2000vh;
+  background: #101010e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+}
+
+.modal{
+  background: #1e1e1eda;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 80%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px); /* Again, the frosted glass effect */
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2); /* Consistent shadow for depth */
+  z-index: 10000;
+
+  color: #fff;
+}

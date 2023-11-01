@@ -8,5 +8,9 @@
 
 .zigzagItem {
   margin: 0.75em 0;
-  font-size: 1.25em;
+  font-size: inherit;
+  color: #6e6ed7;
+  &:hover{
+    color:#fff;
+  }
 }

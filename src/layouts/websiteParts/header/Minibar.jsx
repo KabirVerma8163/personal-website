@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { navbar } from '../../../constants.js'
 
 export const Minibar = ({
   minibarProps
@@ -19,21 +18,11 @@ export const Minibar = ({
         minibarItems.map((item) => {
           if (item.name !== pageName) {
             return (
-              <div 
-                key={item.name}
-                className={minibarItemCls}
-                style={{
-                  color: `${navbar.textColor}`
-                }}>
-                <a href={item.link}>
-                  <FontAwesomeIcon 
-                  icon={item.icon}
-                  style={{
-                    fontSize: '0.8em'
-                  }}
-                  />
-                </a>
-              </div>
+              <a key={item.name} href={item.link} className={minibarItemCls}>
+                <FontAwesomeIcon 
+                icon={item.icon}
+                />
+              </a>
             )
           }
           return null
