@@ -16,6 +16,8 @@ export const indexPage = {}  // Empty object declaration first
   indexPage.rightTextColor = "color: #;"
 }
 
+// will add more constants somewhere here :skull:
+
 export const zigZag = {}
 {
   zigZag.hoverColor = ""
