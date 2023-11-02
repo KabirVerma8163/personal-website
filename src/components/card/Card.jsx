@@ -68,7 +68,6 @@ const Card = ({ information }) => {
             >
               <div className="flex justify-between items-center mb-4">
                 <a href={information.Link || information.RepoLink} target="_blank" rel="noopener noreferrer"
-                //  className="text-2xl font-bold text-blue-500 hover:underline"
                  className={`${styles.cardHeaderMain} font-semibold`}
                 >
                   {information.Name}
@@ -81,9 +80,6 @@ const Card = ({ information }) => {
                     </span>
                 ))}
                 </span>
-                {/* <span className={`${styles.cardField}`}>
-                  {information.Field}
-                </span> */}
               </div>
 
               <div className="flex mb-4 text-sm text-gray-500 font-semibold">
@@ -121,7 +117,6 @@ const Card = ({ information }) => {
         )}
       </AnimatePresence>
   </div>
-
   )
 }
 
