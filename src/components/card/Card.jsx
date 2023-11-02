@@ -120,40 +120,6 @@ const Card = ({ information }) => {
           </motion.div>
         )}
       </AnimatePresence>
-
-
-    {/* <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          // className={`${styles.modalBackground} fixed top-0 left-0 w-full h-full flex items-center justify-center z-50`}
-          className={`${styles.modalBackground}`}
-          onClick={closeModal}
-        >
-          <motion.div 
-            className={`${styles.modal} bg-white p-6 rounded-lg shadow-xl`}
-            initial={{ y: "-100vh" }}
-            animate={{ y: 0 }}
-            exit={{ y: "100vh" }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <p className="text-2xl font-bold mb-4">{information.Name}</p>
-            <p className="mb-2">{information.MiniDescription}</p>
-            <p className="mb-2 text-sm text-gray-500">Type: {information.Type}</p>
-            <p className="mb-2 text-sm text-gray-500 bg-gray-200 p-1 rounded">Languages: {information.Languages.join(", ")}</p>
-            <p className="mb-2 text-sm text-gray-500">Technologies: {information.Technologies.join(", ")}</p>
-            <p className="mb-4">Goal: {information.Goal}</p>
-            <a href={information.Link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-              Project Link
-            </a>
-          </motion.div>
-        </motion.div>
-      )}
-  </AnimatePresence> */}
-
   </div>
 
   )
