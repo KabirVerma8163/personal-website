@@ -2,21 +2,21 @@ import HoverComponent from '../../../components/zigzag/ZigZag.jsx'
 import * as styles from '../../../components/zigzag/zigzag.module.scss'
 
 const zigZagLinks = [
-	{
-		name: "Resume", 
-		type: "page", 
-		link: "/resume"
-	},
-	{
-		name: "Projects", 
-		type: "page", 
-		link: "/projects"
-	},
-	{
-		name: "Contact",
-		type: "page", 
-		link: "#Contact"
-	}
+  {
+    name: "Resume",
+    type: "page",
+    link: "/resume"
+  },
+  {
+    name: "Projects",
+    type: "page",
+    link: "/projects"
+  },
+  {
+    name: "Contact",
+    type: "page",
+    link: "#Contact"
+  }
 ]
 
 export const Navbar = ({
@@ -29,38 +29,34 @@ export const Navbar = ({
     navbarContainerCls,
     navbarLeftSideCls,
     navbarRightSideCls,
+    navbarHeaderCls,
   } = navbarProps
 
-  return(
+  return (
     <div className={navbarContainerCls}>
       <div className={navbarLeftSideCls}>
-      <div className="p-0 m-0 b-0" style={{
+        <div style={{
           color: `#6e6ed7`
-          }}
+        }}
         >
-          {showContents 
-           ? (<a href="/"> Kabir Verma </a>) 
-           : (<a href="/" style={{ color: `#1e1e1e`}}> 
+          {showContents
+            ? (<a className={navbarHeaderCls} href="/"> Kabir Verma </a>)
+            : (<a href="/" style={{ color: `#1e1e1e` }}>
               Kabir Verma </a>
-           )}
+            )}
         </div>
-        
       </div>
 
       <div className={navbarRightSideCls}>
-
-        {/* <div className="linkColor"> */}
-          {
-            showContents ? (         
-              <HoverComponent 
+        {
+          showContents ? (
+            <HoverComponent
               zigzagContainerCls={styles.zigzagContainer}
-              zigzagItemCls={styles.zigzagItem} 
-  
+              zigzagItemCls={styles.zigzagItem}
+
               links={zigZagLinks}
             />) : (<></>)
-          }
-
-        {/* </div> */}
+        }
       </div>
 
     </div>
