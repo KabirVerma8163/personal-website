@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/BasicLayout.astro"
-import ScrollingComponent from "../components/scrollWheel/ScrollWheel.astro"
 import ProjectsComponent from "../components/projects/Projects.jsx"
 
 const projectsList = [
@@ -87,7 +86,6 @@ const projectsList = [
     <div class="projectsHeader">
       <p>Click a card to learn more!</p>
     </div>
-    <!-- <ScrollingComponent /> -->
     <ProjectsComponent projects={projectsList} client:load/>
   </div>
 </Layout>
