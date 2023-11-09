@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { motion } from 'framer-motion'
 
 const SocialLinks = ({ 
@@ -9,9 +10,10 @@ const SocialLinks = ({
   const socialLinksRef = useRef(null)
 
   const [links] = useState([
-    { name: 'GitHub', url: 'https://github.com/', icon: faGithub },
-    { name: 'LinkedIn', url: 'https://linkedin.com/', icon: faLinkedin },
-    { name: 'Discord', url: 'https://discord.com/', icon: faDiscord },
+    { name: 'GitHub', url: 'https://github.com/KabirVerma8163', icon: faGithub, text: 'KabirVerma8163' },
+    { name: 'LinkedIn', url: 'https://linkedin.com//in/kabirv', icon: faLinkedin, text: 'in/kabirv/'},
+    { name: 'Discord', url: 'https://discord.com/', icon: faDiscord , text: 'jammedpancakes'},
+    { name: 'Email', url: 'kverma@uwaterloo.ca', icon: faEnvelope, text: 'kverma@uwaterloo.ca'}
   ])
 
   const [heightPosition, setHeightPosition] = useState(0)
@@ -29,31 +31,6 @@ const SocialLinks = ({
       const socialLinksElement = socialLinksRef.current
 
       if (waveElement && socialLinksElement) {
-        // console.log(waveElement)
-        // var waveRect = waveElement.getBoundingClientRect()
-        // var socialLinksRect = socialLinksElement.getBoundingClientRect()
-        // // console.log(waveRect)
-        // // console.log("SocialLinksRect")
-        // // console.log(socialLinksRect)
-
-        // var waveBottom = waveRect.bottom
-        // // waveBottom += window.scrollY
-        // var linksTop = waveRect.bottom - socialLinksRect.height 
-        // if (pageName === "home") {
-        //   linksTop -= waveRect.height * 0.075
-        // } else {
-        //   linksTop -= (waveRect.height * 0.1)
-        // }
-        // var socialLinksCenter = socialLinksRect.top + (socialLinksRect.height / 2)
-        // var screenCenter = window.innerHeight / 2
-
-        // var offset = waveElement.offsetHeight 
-        // var updatedTop = waveBottom - offset - (socialLinksRect.height / 2)
-        // var updatedLeft = waveRect.left + (waveRect.width / 2) - (socialLinksRect.width / 2)
-
-
-        // console.log(`waveRect: bottom - ${waveRect.bottom}, top - ${waveRect.top},  height - ${waveRect.height} | updatedPosition: ${linksTop}`)
-
         var waveBottom = waveElement.offsetTop + waveElement.offsetHeight;
         var waveCenterX = waveElement.offsetLeft + (waveElement.offsetWidth / 2);
 
@@ -83,6 +60,16 @@ const SocialLinks = ({
     }
   }, [waveRef])
 
+  const copyToClipboard = async (url) => {
+    try {
+      await navigator.clipboard.writeText(url);
+      alert("Link copied to clipboard!");
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+  
+
   return (
     <>
       <div 
@@ -96,19 +83,20 @@ const SocialLinks = ({
         {links.map((link, index) => (
           <motion.div 
             key={index} 
-            className="icon-container"
+            className="icon-container icon"
             style={styles.linkContainer}
-            whileHover={{ scale: 1.2 }} // Framer Motion hover effect
-            transition={{ duration: 0.1 }} // Framer Motion transition
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.1 }}
+            onClick={() => copyToClipboard(link.url)} // Added onClick event handler here
           >
             <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="icon"
+              href="#"
+              onClick={(e) => e.preventDefault()} // Prevent default link navigation
+              // className="icon"
             >
-              <FontAwesomeIcon styles = {styles.link} className="icon" icon={link.icon} size="2x" />
+              <FontAwesomeIcon icon={link.icon} size="3x" />
             </a>
+            <div style={styles.linkText}>{link.text}</div> 
           </motion.div>
         ))}
       </div>
@@ -133,14 +121,23 @@ const styles = {
     position: 'absolute',
   },
   linkContainer: {
-    width: '3em', // Fixed width for each icon's container
-    height: '3em', // Fixed height for each icon's container
-    borderRadius: '25%', // Rounded corners
+    minWidth: '3em', // Fixed width for each icon's container
+    minHeight: '3em', // Fixed height for each icon's container
+    borderRadius: '10%', // Rounded corners
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     transition: 'transform 0.1s ease-in-out', // Transition effect
     backgroundColor: "#1e1e1e99",
+    flexDirection: 'column',
+    padding: '0.5em',
+  },
+  linkText: {
+    marginTop: '0.5em', // Space between icon and text
+    padding: '0 1.25em', // Padding around text
+    textAlign: 'center', // Center the text below the icon
+    fontSize: '0.55em', // Text size
+    textShadow: '0px 0px 3px rgba(0, 0, 0, 0.5)', // Text shadow for readability
   },
   link: {
     textDecoration: 'none',
