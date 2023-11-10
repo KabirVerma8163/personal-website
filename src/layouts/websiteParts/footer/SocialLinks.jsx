@@ -11,9 +11,9 @@ const SocialLinks = ({
 
   const [links] = useState([
     { name: 'GitHub', url: 'https://github.com/KabirVerma8163', icon: faGithub, text: 'KabirVerma8163' },
-    { name: 'LinkedIn', url: 'https://linkedin.com//in/kabirv', icon: faLinkedin, text: 'in/kabirv/'},
+    { name: 'LinkedIn', url: 'https://linkedin.com//in/kabirv', icon: faLinkedin, text: '/in/kabirv'},
     { name: 'Discord', url: 'https://discord.com/', icon: faDiscord , text: 'jammedpancakes'},
-    { name: 'Email', url: 'kverma@uwaterloo.ca', icon: faEnvelope, text: 'kverma@uwaterloo.ca'}
+    { name: 'Email', url: 'mailto:kabirv8163@gmail.com', icon: faEnvelope, text: 'kabirv8163@gmail.com'}
   ])
 
   const [heightPosition, setHeightPosition] = useState(0)
@@ -63,7 +63,7 @@ const SocialLinks = ({
   const copyToClipboard = async (url) => {
     try {
       await navigator.clipboard.writeText(url);
-      alert("Link copied to clipboard!");
+      alert("Email copied to clipboard!");
     } catch (err) {
       console.error('Failed to copy: ', err);
     }
@@ -83,16 +83,19 @@ const SocialLinks = ({
         {links.map((link, index) => (
           <motion.div 
             key={index} 
-            className="icon-container icon"
+            className="icon"
             style={styles.linkContainer}
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.1 }}
-            onClick={() => copyToClipboard(link.url)} // Added onClick event handler here
           >
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()} // Prevent default link navigation
-              // className="icon"
+              href={link.url}
+              onClick={(e) => {
+                if (link.name === "Email") {
+                  e.preventDefault()
+                  copyToClipboard(link.url)
+                }
+              }}
             >
               <FontAwesomeIcon icon={link.icon} size="3x" />
             </a>
@@ -107,7 +110,7 @@ const SocialLinks = ({
 var glassCard = {
   backgroundColor: 'rgba(255, 255, 255, 0.1)',
   borderRadius: '2em',
-  padding: '1em 4em', 
+  padding: '1em 2.5em', 
   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
   backdropFilter: 'blur(10px)', 
 }
@@ -121,7 +124,7 @@ const styles = {
     position: 'absolute',
   },
   linkContainer: {
-    minWidth: '3em', // Fixed width for each icon's container
+    minWidth: '7em', // Fixed width for each icon's container
     minHeight: '3em', // Fixed height for each icon's container
     borderRadius: '10%', // Rounded corners
     display: 'flex',
