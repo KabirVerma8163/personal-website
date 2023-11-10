@@ -130,12 +130,13 @@ import Layout from "../layouts/BasicLayout.astro"
 
 	.resumeEmbed {
 		min-height: 55vh;
-		width: 80%;
+		// width: 90%;
+		height: 100%;
 		background-color: #f5f5f5;
 		@media (max-width: 768px) {
 			width: 100%;
 		}
-		@media (pointer: fine) {
+		@media (pointer: fine) and (max-width: 768px) {
 			height: 80vh;
 		}
 	}
