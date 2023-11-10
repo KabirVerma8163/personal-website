@@ -6,14 +6,15 @@ import { motion } from 'framer-motion'
 
 const SocialLinks = ({ 
   pageName, 
-  waveRef }) => {
+  waveRef,
+  styleTags }) => {
   const socialLinksRef = useRef(null)
 
   const [links] = useState([
     { name: 'GitHub', url: 'https://github.com/KabirVerma8163', icon: faGithub, text: 'KabirVerma8163' },
     { name: 'LinkedIn', url: 'https://linkedin.com//in/kabirv', icon: faLinkedin, text: '/in/kabirv'},
     { name: 'Discord', url: 'https://discord.com/', icon: faDiscord , text: 'jammedpancakes'},
-    { name: 'Email', url: 'mailto:kabirv8163@gmail.com', icon: faEnvelope, text: 'kabirv8163@gmail.com'}
+    { name: 'Email', url: 'kabirv8163@gmail.com', icon: faEnvelope, text: 'kabirv8163@gmail.com'}
   ])
 
   const [heightPosition, setHeightPosition] = useState(0)
@@ -68,23 +69,25 @@ const SocialLinks = ({
       console.error('Failed to copy: ', err);
     }
   };
+
+  let {icon, iconProperties, linkContainer, linkText, contactContainer} = styleTags
   
 
   return (
     <>
       <div 
         ref={socialLinksRef}
-        style={{ ...styles.container, 
+        style={{
           opacity: isLoaded ? 1 : 0, 
           top: `${heightPosition}px`, 
           left: `${leftPosition}px`
         }}
+        className={`${contactContainer}`}
       >
         {links.map((link, index) => (
           <motion.div 
             key={index} 
-            className="icon"
-            style={styles.linkContainer}
+            className={`${icon} ${linkContainer}`}
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.1 }}
           >
@@ -97,9 +100,9 @@ const SocialLinks = ({
                 }
               }}
             >
-              <FontAwesomeIcon icon={link.icon} size="3x" />
+              <FontAwesomeIcon icon={link.icon} className={iconProperties} />
             </a>
-            <div style={styles.linkText}>{link.text}</div> 
+            <div className={`${linkText}`} >{link.text}</div> 
           </motion.div>
         ))}
       </div>
@@ -123,28 +126,6 @@ const styles = {
     zIndex: 1000,
     position: 'absolute',
   },
-  linkContainer: {
-    minWidth: '7em', // Fixed width for each icon's container
-    minHeight: '3em', // Fixed height for each icon's container
-    borderRadius: '10%', // Rounded corners
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'transform 0.1s ease-in-out', // Transition effect
-    backgroundColor: "#1e1e1e99",
-    flexDirection: 'column',
-    padding: '0.5em',
-  },
-  linkText: {
-    marginTop: '0.5em', // Space between icon and text
-    padding: '0 1.25em', // Padding around text
-    textAlign: 'center', // Center the text below the icon
-    fontSize: '0.55em', // Text size
-    textShadow: '0px 0px 3px rgba(0, 0, 0, 0.5)', // Text shadow for readability
-  },
-  link: {
-    textDecoration: 'none',
-  }
 }
 
 export default SocialLinks

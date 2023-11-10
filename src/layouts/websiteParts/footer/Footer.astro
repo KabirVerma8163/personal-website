@@ -1,9 +1,6 @@
 ---
-import WaveComponent from "./WaveComponent.jsx"
-import { waveProperties } from "../../../constants.js"
-import * as styles from "./footer.module.scss"
-
 import ReactFooter from "./Footer.jsx"
+import * as styles from "./footer.module.scss"
 
 let { pageName } = Astro.props
 ---
@@ -29,15 +26,6 @@ let { pageName } = Astro.props
     align-items: flex-end;
     justify-content: center;
     background-color: #1e1e1e;
-  }
-
-
-  .icon {
-    color: #f1f1f1;
-    &:hover {
-      color: #00c362;
-      color: #4264ff;
-    }
   }
 </style>
 

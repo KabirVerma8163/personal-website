@@ -31,7 +31,7 @@ const typerStrings = [
 
 <Layout pageName="home" title="Kabir Verma">
 	<div class="mainBody">
-		<div class="linkColor">
+		<div class="headerLinks">
 			<ZigZag links={zigZagLinks} /> 
 		</div>
 
@@ -61,15 +61,18 @@ const typerStrings = [
 	}
 
 	.pageContents{}
-
-	.linkColor{
-		font-size: 1.5em;
-	}
 	
 	.typer{
 		@media (max-width: 768px){
 			display: block;
 		}
+	}
+
+	.headerLinks{
+		font-size: 1.5em;
+  	@media (max-width: 768px) {
+    font-size: 1rem;
+  }
 	}
 
 	.contentParagraphHeader{

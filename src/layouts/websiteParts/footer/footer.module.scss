@@ -1,7 +1,3 @@
-.contact{
-  // background-color: red;
-}
-
 .Footer{
   width: 100vw;
   min-height: 30vh;
@@ -19,3 +15,89 @@
   // width: 100%;
   // height: 30vh;
 }
+
+.icon {
+  color: #f1f1f1;
+
+  // only have hover if its not on a touch screen
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: #00c362;
+      color: #4264ff;
+    }
+  }
+}
+
+.linkContainer {
+  min-width: 7em; // Fixed minimum width for each icon's container
+  min-height: 3em; // Fixed minimum height for each icon's container
+  border-radius: 10%; // Rounded corners
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-in-out; // Transition effect
+  background-color: #1e1e1e99;
+  flex-direction: column;
+  padding: 0.5em;
+
+  // Responsive design for smaller screens
+  @media (max-width: 600px) { // Adjust the max-width as needed for your design
+    min-width: 3em; // Adjust the minimum width for smaller screens
+    padding: 0.3em; // Adjust padding for smaller screens
+    // You can also adjust font sizes, icon sizes, etc. here if needed
+  }
+}
+
+.linkText {
+  margin-top: 0.5em; // Space between icon and text
+  padding: 0 1.25em; // Padding around text
+  text-align: center; // Center the text below the icon
+  font-size: 0.55em; // Text size
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5); // Text shadow for readability
+
+  // Responsive design for smaller screens
+  @media (max-width: 600px) {
+    font-size: 0.4em; // Larger text size for smaller screens for better readability
+    padding: 0 1em; // Adjust padding for smaller screens if needed
+    display:none;
+  }
+}
+
+.iconProperties {
+  font-size: 3rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+$glass-card: (
+  background-color: rgba(255, 255, 255, 0.1),
+  border-radius: 2em,
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+  backdrop-filter: blur(10px),
+);
+
+.contactContainer {
+  @extend %glass-card; // This is a placeholder selector that acts like a mixin
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
+  position: absolute;
+  padding: 1em 2.5em;
+
+  // Responsive design adjustments can be added here
+  @media (max-width: 600px) {
+    gap: 0.5rem;
+    padding: 1em 1.5em; // Example adjustment for smaller screens
+  }
+}
+
+// Defining a placeholder that includes the glass card styles
+%glass-card {
+  @each $property, $value in $glass-card {
+    #{$property}: #{$value};
+  }
+}
+
+

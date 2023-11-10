@@ -16,6 +16,7 @@ const WaveComponent = ({
   children,
   setParentHeight,
   canvasRef,
+  styleTags,
 }) => {
   if (canvasRef === undefined){
     canvasRef = useRef(null)
@@ -104,22 +105,20 @@ const WaveComponent = ({
   }, [])
 
   return (
-  <>
-    <canvas 
-      className={"wave"} 
-      id={"wave"}
-      ref={canvasRef} 
-      style={{
-        // position: "absolute",
-        // bottom: pageName === "home" ? "0px" : "50px" // or whatever value you prefer
-      }}
-    />
+    <>
+      <canvas
+        className={"wave"}
+        id={"wave"}
+        ref={canvasRef}
+        style={{
+          // position: "absolute",
+          // bottom: pageName === "home" ? "0px" : "50px" // or whatever value you prefer
+        }}
+      />
 
-    <SocialLinks waveRef={canvasRef} pageName={pageName}></SocialLinks>
-  </>
-  //   {children}
-  // </canvas>
-    )
+      <SocialLinks styleTags={styleTags} waveRef={canvasRef} pageName={pageName}></SocialLinks>
+    </>
+  )
 }
 
 export default WaveComponent
