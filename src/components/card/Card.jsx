@@ -103,15 +103,15 @@ const Card = ({ information }) => {
 
               <div className={`${styles.cardTextMain}`}>
                 {
-                  information.MiniDescription && !informatino.Description && <p className="mb-4">{information.MiniDescription}</p>
+                  information.MiniDescription && !information.Description && <p className="mb-4">{information.MiniDescription}</p>
                 }
                 {
-                  information.Description && <p className="mb-4">{information.MiniDescription}</p>
+                  information.Description && <p className="mb-4">{information.Description}</p>
                 }
               </div>
 
 
-              {information.Link && (
+              {information.Link && information.RepoLink && (
                 <a href={information.RepoLink} target="_blank" rel="noopener noreferrer" className={`${styles.cardLink} hover:underline mb-2`}>
                   Repo 
                 </a>
