@@ -102,8 +102,12 @@ const Card = ({ information }) => {
               </div>
 
               <div className={`${styles.cardTextMain}`}>
-                <p className="mb-4">{information.MiniDescription}</p>
-                <p className="mb-4">{information.FullDescription}</p>
+                {
+                  information.MiniDescription && !informatino.Description && <p className="mb-4">{information.MiniDescription}</p>
+                }
+                {
+                  information.Description && <p className="mb-4">{information.MiniDescription}</p>
+                }
               </div>
 
 
