@@ -2,84 +2,128 @@
 import Layout from "../layouts/BasicLayout.astro"
 import ProjectsComponent from "../components/projects/Projects.jsx"
 
+
+// {
+  // Name: "",
+  // MiniDescription: "",
+  // Description: "",
+  // Field: [],
+  // Type: "",
+  // Languages: [],
+  // Technologies: [],
+  // Goal: "",
+  // Link: "",
+  // RepoLink: ""
+  // Status: "" // InProgress, Completed, Paused, Updates Coming Soon
+// }
+
+// https://github.com/KabirVerma8163/TravelleRBackend
 const projectsList = [
   {
     Name: "Obsidian Journaling",
     MiniDescription: "Open-Source Typescript Plugin for Obsidian.",
     Description: "A plugin for Obsidian that allows for easy journaling and note-taking. It has commands for regular note creation and autmoatic note-linking. It also has a command for creating periodic notes. It was built using the Obsidian API in TypeScript and has support fo more notification and better.",
-    Field: ["Back-End", "Front-End"],
-    Type: "Open-Source",
+    Goal: "Facilitate better note-taking and automate some of the process of note creation with a single command. It has support for reminders and notification on Computer but not on Mobile (Obsidian lacks the functionality).",
     Languages: ["TypeScript"],
     Technologies: ["Obsidian", "Node.js"],
-    Goal: "Facilitate better note-taking and automate some of the process of note creation with a single command. It has support for reminders and notification on Computer but not on Mobile (Obsidian lacks the functionality).",
+    Field: ["Back-End", "Front-End"],
+    Type: "Open-Source",
     Link: "https://github.com/KabirVerma8163/journalling-plugin",
-    RepoLink: ""
-  },
-  {
-    Name: "ShareMyFeed",
-    MiniDescription: "Go API & Discord.js Bot for social feed sharing.",
-    Field: ["Back-End"],
-    Type: "Bot",
-    Languages: ["Go", "JavaScript"],
-    Technologies: ["Discord.js", "MongoDB"],
-    Goal: "Simplify social media sharing",
-    Link: "#"
+    RepoLink: "",
+    Status: "Completed",
   },
   {
     Name: "YouTube Scraper",
     MiniDescription: "Python script to scrape YouTube data.",
-    Field: ["Back-End"],
-    Type: "Script",
+    Description: "The script is quite simple, it allows the user to log into YouTube once and after that everytime its run, scrapes your YouTube history both shorts and long form for the past three days and returns them as an array of objects. It also has the ability to return the data as a JSON file.",
+    Goal: "I wanted to automate the process of seeing just how much youtube I consume.",
     Languages: ["Python"],
     Technologies: ["Playwright"],
-    Goal: "Automate YouTube data collection",
-    Link: "#"
+    Link: "https://github.com/KabirVerma8163/youtube-scraper",
+    RepoLink: "",
+    Field: ["Back-End"],
+    Type: "Script",
+    Status: "Completed",
+  },
+  {
+    Name: "ShareMyFeed API",
+    MiniDescription: "Go API for social feed sharing.",
+    Desctiption: "I wanted to allow people to have more curated ways of sharing the content they enjoyed with their friends, rather than having what they sent buried in chats. I also wanted it to be easy to use and accessible through different technologies so I built an API for it. I eventually intend on building a website interface as well.",
+    Goal: "Simplify social media sharing and content curating.",
+    Languages: ["Go",],
+    Technologies: ["MongoDB",],
+    Link: "https://github.com/KabirVerma8163/SecretaryAPI",
+    RepoLink: "",
+    Field: ["Back-End"],
+    Type: "REST API",
+    Status: "Updates Coming Soon",
+  },
+  {
+    Name: "ShareMyFeed Discord Bot",
+    MiniDescription: "This is the discord bot interaface for my ShareMyFeed API.",
+    Description: "I use discord for a lot of personal communication, the I wanted to have this bot as a way for me to just message it or send a command in a server since that's usually where I'd go to share articiles, videos and other links with my friends.",
+    Goal: "Make life (mine) easier",
+    Languages: ["TypeScript", "JavaScript"],
+    Technologies: ["Discord.js",],
+    Link: "https://github.com/KabirVerma8163/ShareMyFeedDiscordBot",
+    RepoLink: "",
+    Field: ["Back-End"],
+    Type: "Bot",
+    Status: "Updates Coming Soon",
   },
   {
     Name: "Provident",
-    MiniDescription: "Interactive investing simulator.",
-    Type: "Web App",
+    MiniDescription: "Hack the 6ix 2021: Interactive investing simulator.",
+    Description: "A project for Hack the 6ix 2021. It was built using the IEXCloud API and Highcharts. It allows users to simulate investing in the stock market and see how their portfolio would perform over time. It also has a leaderboard to see how you stack up against other users.",
+    Goal: "Create a fun and interactive way to learn about investing.",
     Languages: ["JavaScript"],
     Technologies: ["HTML/CSS", "IEXCloud API", "Highcharts"],
-    Goal: "Educate on investing",
-    Link: "#"
+    Link: "https://devpost.com/software/provident",
+    RepoLink: "https://github.com/KabirVerma8163/provident",
+    Field: ["Front-End", "Back-End"],
+    Type: "Web App",
+    Status: "Shelved",
   },
   {
-    Name: "Random Project 1",
-    MiniDescription: "A project for doing something interesting.",
-    Type: "Mobile App",
-    Languages: ["Swift"],
-    Technologies: ["iOS", "Firebase"],
-    Goal: "Make life easier",
-    Link: "#"
+    Name: "Google Drive File Transfer",
+    MiniDescription: "Automating cloud file backup.",
+    Description: "I wanted to automate the process of backing up my files to the cloud. I also wanted to learn more about the Google Drive API and how to use it. It allows users to select a folder on their computer and then upload it to their Google Drive. It also has the ability to download files from Google Drive to your computer.",
+    Goal: "Learn about External APIs and scripting",
+    Languages: ["Go"],
+    Technologies: [],
+    Link: "https://github.com/KabirVerma8163/Drive-API-file-transfer",
+    RepoLink: "",
+    Field: ["Automation Scripting"],
+    Type: "Script",
+    Status: "Completed",
   },
   {
-    Name: "Random Project 2",
-    MiniDescription: "Another intriguing project.",
-    Type: "API",
-    Languages: ["Java"],
-    Technologies: ["Spring Boot"],
+    Name: "TabTrakr",
+    MiniDescription: "EngHack 2021: tracking website usage.",
+    Description: "This was a project for EngHack 2021. It was a screen time tracker for different website usage while browsing to help users see how much time they spent different websites and eventually set up blocks for certain websites." ,
     Goal: "Provide Data Service",
-    Link: "#"
+    Languages: ["JavaScript"],
+    Technologies: [],
+    Link: "https://devpost.com/software/tabtrakr",
+    RepoLink: "https://github.com/keviinliuu/TabTrakr",
+    Field: ["Front-End", "Back-End"],
+    Type: "Browser Extension",
+    Status: "Shelved",
+  },
+  {
+    Name: "Chess Game",
+    MiniDescription: "A simple chess player app, with functionality for both PvP and PvC. Also my first major project.",
+    Description: "<span>A simple chess player app and one of my first key projects. It has functionality for both PvP and PvC. It was built using Pygame and Python. I enjoyed building this a lot and learned a lot about just programming in general and learned to love the process of building something from scratch. I also eventually want to add a chess engine to it and that led me down using the <a href=\"https://github.com/KabirVerma8163/GoTicTacToe\" class=\"link\">minimax algorithm for TicTacToe.<\/a><\/span> That project was my first algorithmically heavy pieces of code and finally taught me recursion.",
+    Goal: "Learn more about chess and OOP in Python",
+    Languages: ["Python"],
+    Technologies: ["Pygame"],
+    Link: "https://github.com/KabirVerma8163/PythonChess",
+    RepoLink: "",
+    Field: ["Game Dev", "Algorithms"],
+    Type: "Game",
+    Status: "Shelved",
   },  
-  {
-    Name: "Random Project 1",
-    MiniDescription: "A project for doing something interesting.",
-    Type: "Mobile App",
-    Languages: ["Swift"],
-    Technologies: ["iOS", "Firebase"],
-    Goal: "Make life easier",
-    Link: "#"
-  },
-  {
-    Name: "Random Project 2",
-    MiniDescription: "Another intriguing project.",
-    Type: "API",
-    Languages: ["Java"],
-    Technologies: ["Spring Boot"],
-    Goal: "Provide Data Service",
-    Link: "#"
-  }
+
 ]
 ---
 
@@ -115,5 +159,14 @@ const projectsList = [
     margin-top: 2em;
     justify-content: center;
     align-items: center;
+  }
+
+  .link{
+    text-decoration: none;
+    color: #6e6ed7;
+    transition: color 0.3s ease;
+    &:hover{
+      color: #fff;
+    }
   }
 </style>

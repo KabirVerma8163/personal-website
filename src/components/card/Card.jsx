@@ -33,8 +33,7 @@ const Card = ({ information }) => {
       >
         <a
           href={information.Link}
-          target="_blank"
-          rel="noopener noreferrer"
+          // target="_blank" rel="noopener noreferrer"
           className={`${styles.cardHeader}`}
         >
           {information.Name}
@@ -67,7 +66,8 @@ const Card = ({ information }) => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="flex justify-between items-center mb-4">
-                <a href={information.Link || information.RepoLink} target="_blank" rel="noopener noreferrer"
+                <a href={information.Link || information.RepoLink} 
+                // target="_blank" rel="noopener noreferrer"
                  className={`${styles.cardHeaderMain} font-semibold`}
                 >
                   {information.Name}
@@ -106,13 +106,16 @@ const Card = ({ information }) => {
                   information.MiniDescription && !information.Description && <p className="mb-4">{information.MiniDescription}</p>
                 }
                 {
-                  information.Description && <p className="mb-4">{information.Description}</p>
+                  information.Description && <p className="mb-4">{<SafeHtml html={information.Description} />}</p>
                 }
               </div>
 
 
               {information.Link && information.RepoLink && (
-                <a href={information.RepoLink} target="_blank" rel="noopener noreferrer" className={`${styles.cardLink} hover:underline mb-2`}>
+                <a href={information.RepoLink} 
+                // target="_blank" 
+                rel="noopener noreferrer" 
+                className={`${styles.cardLink} hover:underline mb-2`}>
                   Repo 
                 </a>
               )}
@@ -125,3 +128,10 @@ const Card = ({ information }) => {
 }
 
 export default Card
+
+function SafeHtml({ html }) {
+  // You would sanitize the html string here before setting it
+  // For this example, we'll assume the string is safe and sanitized
+  return <span dangerouslySetInnerHTML={{ __html: html }} />;
+}
+
