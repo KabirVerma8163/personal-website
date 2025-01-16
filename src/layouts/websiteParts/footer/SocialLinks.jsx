@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
 const SocialLinks = ({ 
   pageName, 
   waveRef,
-  styleTags }) => {
+  styleTags,
+  width }) => {
   const socialLinksRef = useRef(null)
 
   const [links] = useState([
@@ -32,11 +33,19 @@ const SocialLinks = ({
       const socialLinksElement = socialLinksRef.current
 
       if (waveElement && socialLinksElement) {
-        var waveBottom = waveElement.offsetTop + waveElement.offsetHeight;
-        var waveCenterX = waveElement.offsetLeft + (waveElement.offsetWidth / 2);
+        var waveBottom = waveElement.offsetTop + waveElement.offsetHeight
+        var waveCenterX = waveElement.offsetLeft + (waveElement.offsetWidth / 2)
+        console.log(waveElement.offsetLeft)
+        console.log(waveElement.offsetWidth)
+        // var waveCenterX = (waveElement.offsetWidth / 2)
+        // var waveCenterX = waveElement.offsetLeft + (width)
+        var waveCenterX = (waveElement.offsetWidth / 2)
 
+        console.log(`width: ${width} waveCenterX: ${waveCenterX}`)
+
+        // these two lines
         var linksHeight = socialLinksElement.offsetHeight;
-        var linksWidth = socialLinksElement.offsetWidth;
+        var linksWidth = socialLinksElement.offsetWidth; 
 
         var linksTop;
         if (pageName === "home") {
@@ -45,7 +54,9 @@ const SocialLinks = ({
           linksTop = waveBottom - (waveElement.offsetHeight * 0.3) - (linksHeight / 2);
         }
 
+        console.log(`waveCenterX: ${waveCenterX}, linksWidth: ${linksWidth}`)
         var linksLeft = waveCenterX - (linksWidth / 2);
+        console.log(`leftPosition: ${linksLeft}`)
 
         setHeightPosition(linksTop)
         setLeftPosition(linksLeft)
@@ -75,6 +86,7 @@ const SocialLinks = ({
 
   return (
     <>
+      {/* {leftPosition >= 0 && ( */}
       <div 
         ref={socialLinksRef}
         style={{
@@ -106,6 +118,7 @@ const SocialLinks = ({
           </motion.div>
         ))}
       </div>
+      {/* )} */}
     </>
   )
 }

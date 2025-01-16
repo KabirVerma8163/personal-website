@@ -31,12 +31,15 @@ const WaveComponent = ({
     canvasHeightFactor = 1
   }
 
+  const [testWidth, setTestWidth] = useState(0);
   useLayoutEffect(() => {
     const canvas = canvasRef.current
     const parent = () => {return canvas.parentNode.parentNode}
     
     const ctx = canvas.getContext("2d")
-    const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
+    let pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
+    console.log(pixelRatio)
+    // pixelRatio = 1
 
     let stageWidth = document.body.clientWidth
     let stageHeight = parent().clientHeight * heightFactor
@@ -45,9 +48,15 @@ const WaveComponent = ({
     // parent().style.height = getCanvasHeight(stageHeight, pixelRatio, pageName)
     // console.log(parent().clientHeight)
 
-    canvas.width = (stageWidth * pixelRatio) / 2 
+    // canvas.width = (stageWidth * pixelRatio) / 2
+    // canvas.width = (stageWidth * pixelRatio)
+    setTestWidth(stageWidth * pixelRatio); // Update state
+    // setTestWidth(100); // Update state
     canvas.height = stageHeight * pixelRatio
     canvas.height = getCanvasHeight(stageHeight, pixelRatio, pageName)
+
+    // canvas.width = stageWidth * pixelRatio;
+    // canvas.height = stageHeight * pixelRatio;
 
     // console.log(canvas.height)
     // console.log(canvas.style.height)
@@ -67,7 +76,10 @@ const WaveComponent = ({
 
       stageWidth = document.body.clientWidth
       stageHeight = parent().clientHeight * heightFactor
-      canvas.width = (stageWidth * pixelRatio) / 2 
+      canvas.width = (stageWidth * pixelRatio) / 2
+      canvas.width = (stageWidth * pixelRatio)
+      setTestWidth(stageWidth * pixelRatio); // Update state
+      // setTestWidth(100); // Update state
       canvas.height = getCanvasHeight(stageHeight, pixelRatio, pageName)
 
       ctx.scale(pixelRatio, pixelRatio)
@@ -104,6 +116,7 @@ const WaveComponent = ({
     }
   }, [])
 
+  console.log(`Width: ${testWidth}`)
   return (
     <>
       <canvas
@@ -116,7 +129,10 @@ const WaveComponent = ({
         }}
       />
 
-      <SocialLinks styleTags={styleTags} waveRef={canvasRef} pageName={pageName}></SocialLinks>
+      { testWidth > 0 &&
+        <SocialLinks styleTags={styleTags} waveRef={canvasRef} pageName={pageName} width={testWidth}/>}
+
+      {/* </SocialLinks> */}
     </>
   )
 }
