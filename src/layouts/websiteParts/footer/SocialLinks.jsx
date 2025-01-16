@@ -7,7 +7,8 @@ import { motion } from 'framer-motion'
 const SocialLinks = ({ 
   pageName, 
   waveRef,
-  styleTags }) => {
+  styleTags,
+  displayPixelRatio}) => {
   const socialLinksRef = useRef(null)
 
   const [links] = useState([
@@ -21,45 +22,49 @@ const SocialLinks = ({
   const [leftPosition, setLeftPosition] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false);
 
+  console.log(`DPR in SocialLinks: ${displayPixelRatio}, ${typeof(displayPixelRatio)}`)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 200)
-    
-    const updatePosition = () => {
-      const waveElement = waveRef.current
-      const socialLinksElement = socialLinksRef.current
+    // Only proceed if displayPixelRatio is valid
+    if (displayPixelRatio > 0) {
+      const timer = setTimeout(() => {
+        setIsLoaded(true);
+      }, 200);
+      
+      const updatePosition = () => {
+        const waveElement = waveRef.current;
+        const socialLinksElement = socialLinksRef.current;
 
-      if (waveElement && socialLinksElement) {
-        var waveBottom = waveElement.offsetTop + waveElement.offsetHeight;
-        var waveCenterX = waveElement.offsetLeft + (waveElement.offsetWidth / 2);
+        if (waveElement && socialLinksElement) {
+          const waveBottom = waveElement.offsetTop + waveElement.offsetHeight ;
+          const waveCenterX = waveElement.offsetLeft / displayPixelRatio + (waveElement.offsetWidth / 2 / displayPixelRatio);
 
-        var linksHeight = socialLinksElement.offsetHeight;
-        var linksWidth = socialLinksElement.offsetWidth;
+          const linksHeight = socialLinksElement.offsetHeight / displayPixelRatio;
+          const linksWidth = socialLinksElement.offsetWidth;
 
-        var linksTop;
-        if (pageName === "home") {
-          linksTop = waveBottom - (waveElement.offsetHeight * 0.2) - (linksHeight / 2);
-        } else {
-          linksTop = waveBottom - (waveElement.offsetHeight * 0.3) - (linksHeight / 2);
+          let linksTop;
+          if (pageName === "home") {
+            linksTop = waveBottom - (waveElement.offsetHeight * 0.25) - (linksHeight / 2);
+          } else {
+            linksTop = waveBottom - (waveElement.offsetHeight * 0.3) - (linksHeight / 2);
+          }
+
+          const linksLeft = waveCenterX - (linksWidth / 2);
+
+          setHeightPosition(linksTop);
+          setLeftPosition(linksLeft);
         }
+      };
 
-        var linksLeft = waveCenterX - (linksWidth / 2);
+      updatePosition();
+      window.addEventListener('resize', updatePosition);
 
-        setHeightPosition(linksTop)
-        setLeftPosition(linksLeft)
-      }
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('resize', updatePosition);
+      };
     }
-
-    updatePosition()
-    window.addEventListener('resize', updatePosition)
-
-    return () => {
-      clearTimeout(timer)
-      window.removeEventListener('resize', updatePosition)
-    }
-  }, [waveRef])
+  }, [waveRef, displayPixelRatio]);
 
   const copyToClipboard = async (url) => {
     try {
