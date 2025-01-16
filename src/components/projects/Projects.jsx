@@ -10,9 +10,9 @@ const ProjectsComponent = ({projects}) => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768)
     setHasDeterminedScreenSize(true)
     
-    console.log(`window.innerWidth: ${window.innerWidth}`)
-    console.log(`setIsMobile: ${isMobile}`)
-    console.log(`hasDeterminedScreenSize: ${hasDeterminedScreenSize}`)
+    // console.log(`window.innerWidth: ${window.innerWidth}`)
+    // console.log(`setIsMobile: ${isMobile}`)
+    // console.log(`hasDeterminedScreenSize: ${hasDeterminedScreenSize}`)
 
     window.addEventListener('resize', handleResize)
     return () => {

@@ -22,7 +22,7 @@ const SocialLinks = ({
   const [leftPosition, setLeftPosition] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log(`DPR in SocialLinks: ${displayPixelRatio}, ${typeof(displayPixelRatio)}`)
+  // console.log(`DPR in SocialLinks: ${displayPixelRatio}, ${typeof(displayPixelRatio)}`)
 
   useEffect(() => {
     // Only proceed if displayPixelRatio is valid
@@ -71,7 +71,7 @@ const SocialLinks = ({
       await navigator.clipboard.writeText(url);
       alert("Email copied to clipboard!");
     } catch (err) {
-      console.error('Failed to copy: ', err);
+      // console.error('Failed to copy: ', err);
     }
   };
 

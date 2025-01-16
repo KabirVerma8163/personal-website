@@ -37,7 +37,8 @@ const WaveComponent = ({
     const parent = () => {return canvas.parentNode.parentNode}
     
     const ctx = canvas.getContext("2d")
-    const pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
+    let pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
+    // pixelRatio = 1
     setDevicePixelRatio(pixelRatio)
     console.log(`Pixel ratio: ${pixelRatio}`)
 
