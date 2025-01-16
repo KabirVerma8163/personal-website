@@ -39,7 +39,7 @@ const { pageName, title } = Astro.props;
 			</div>
 		</div>
 		<Footer pageName={pageName} />
-		<!-- <div id="Contact">a</div> -->
+		<div id="Contact"></div>
 	</body>
 </html>
 
@@ -63,6 +63,9 @@ const { pageName, title } = Astro.props;
 
 	#Contact {
 		background-color: transparent;
+		position: fixed; 
+		bottom: 0;
+		visibility: hidden;
 		color: transparent;
 		@media (min-width: 768px) {
 			transform: translateY(5vh);

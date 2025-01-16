@@ -88,6 +88,7 @@ const SocialLinks = ({
           left: `${leftPosition}px`
         }}
         className={`${contactContainer}`}
+        
       >
         {links.map((link, index) => (
           <motion.div 
