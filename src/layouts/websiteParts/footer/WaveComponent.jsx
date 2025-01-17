@@ -35,12 +35,17 @@ const WaveComponent = ({
   useLayoutEffect(() => {
     const canvas = canvasRef.current
     const parent = () => {return canvas.parentNode.parentNode}
+    const width = window.innerWidth
+    const height = window.innerHeight
+    const aspectRatio = width / height
     
     const ctx = canvas.getContext("2d")
     let pixelRatio = window.devicePixelRatio > 1 ? 2 : 1
-    // pixelRatio = 1
+    if (width <= 768 || aspectRatio < 1){
+      pixelRatio = 1
+    }
     setDevicePixelRatio(pixelRatio)
-    console.log(`Pixel ratio: ${pixelRatio}`)
+    // console.log(`Pixel ratio: ${pixelRatio}`)
 
     let stageWidth = document.body.clientWidth
     let stageHeight = parent().clientHeight * heightFactor
@@ -106,7 +111,7 @@ const WaveComponent = ({
         resize()
       })
     }
-  }, [])
+  }, [canvasRef])
 
   return (
     <>
@@ -117,6 +122,7 @@ const WaveComponent = ({
         style={{
           // position: "absolute",
           // bottom: pageName === "home" ? "0px" : "50px" // or whatever value you prefer
+          // overflow: "hidden"
         }}
       />
 
