@@ -94,14 +94,16 @@ const WaveComponent = ({
 
     const footerTop = footer.getBoundingClientRect().top
     canvas.style.position = "absolute"
-    canvas.style.top = `${footerTop + window.scrollY}px`
+    canvas.style.bottom = `0px`
+    // canvas.style.top = `${footerTop + window.scrollY}px`
 
     window.addEventListener("resize", () => {
       resize()
       const layoutBottom = layoutDiv.getBoundingClientRect().bottom
       const footerTop = footer.getBoundingClientRect().top
       canvas.style.position = "absolute"
-      canvas.style.top = `${footerTop + window.scrollY}px`
+      canvas.style.bottom = `0px`
+      // canvas.style.top = `${footerTop + window.scrollY}px`
 
     })
     animate()
