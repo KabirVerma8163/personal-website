@@ -92,15 +92,15 @@ const WaveComponent = ({
     const footer = document.getElementById("ReactFooter")
     const layoutDiv = document.getElementById("Layout")
 
-    const footerTop = footer.getBoundingClientRect().top
+    // const footerTop = footer.getBoundingClientRect().top
     canvas.style.position = "absolute"
     canvas.style.bottom = `0px`
     // canvas.style.top = `${footerTop + window.scrollY}px`
 
     window.addEventListener("resize", () => {
       resize()
-      const layoutBottom = layoutDiv.getBoundingClientRect().bottom
-      const footerTop = footer.getBoundingClientRect().top
+      // const layoutBottom = layoutDiv.getBoundingClientRect().bottom
+      // const footerTop = footer.getBoundingClientRect().top
       canvas.style.position = "absolute"
       canvas.style.bottom = `0px`
       // canvas.style.top = `${footerTop + window.scrollY}px`
